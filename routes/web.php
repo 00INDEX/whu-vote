@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', 'AuthController');
+Route::get('/', 'AuthController@index');
+Route::post('/', 'AuthController@index');
+
