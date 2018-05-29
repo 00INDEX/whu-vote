@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Request;
 
-class VoteController extends Controller
+class AuthController extends Controller
 {
     private $params;
     public function index(){
