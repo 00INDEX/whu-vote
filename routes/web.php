@@ -13,5 +13,5 @@
 
 Route::resource('/', 'AuthController');
 Route::get('/', 'AuthController@index');
-Route::post('/', 'AuthController@index');
+Route::post('/', 'AuthController@auth');
 
