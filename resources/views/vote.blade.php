@@ -178,7 +178,8 @@
                 $("#votesubmit").click(function () {
                     if (choice.length == 0) return false;
                     if (choice.length < 10 ){
-                        for (var i = 0;i < 10 - choice.length; i++) choice.unshift(0);
+                        var l = choice.length;
+                        for (var i = 0;i < 10 - l; i++) choice.unshift(0);
                     };
                     var data = {
                         "_token": "{{csrf_token()}}",
