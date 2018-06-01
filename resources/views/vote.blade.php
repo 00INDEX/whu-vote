@@ -23,7 +23,7 @@
 
 
 
-                    @if(($sport->id - 1) % 2 == 0)
+                    @if(($teacher->id - 1) % 2 == 0)
                         <div class="voteBox" style="border-left-style: solid;border-left-color: green;border-left-width: 10px;">
                             @else
                                 <div class="voteBox" style="border-right-style: solid;border-right-color: green;border-right-width: 10px;">
