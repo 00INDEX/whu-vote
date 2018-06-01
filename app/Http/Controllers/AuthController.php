@@ -24,9 +24,6 @@ class AuthController extends Controller
         switch ($input['action']){
             case "1":
                 session(['error'=>"0"]);
-                session(['voteOne'=>null]);
-                session(['voteTwo'=>null]);
-                session(['voteThree'=>null]);
                 $url = "http://210.42.121.241/servlet/Login";
                 $this->requestData = array(
                     "id" => $input['id'],
