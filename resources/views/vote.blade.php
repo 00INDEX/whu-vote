@@ -199,7 +199,7 @@
                                 url: "/",
                                 data: data,
                                 success: function (data) {
-                                    swal("提交成功！","谢谢您的参与", "success")
+                                    swal("提交成功！","谢谢您的参与", "success");
                                 }
                             })
                         });

@@ -18,8 +18,6 @@ class AuthController extends Controller
     }
 
     public function auth(){
-
-
         $input = Request::input();
         switch ($input['action']){
             case "1":
@@ -61,16 +59,15 @@ class AuthController extends Controller
                 $input = Request::input();
                 $date = date('d');
 
-                if (DB::select('SELECT * FROM sysOneStudent WHERE date = ?', [$date])){
-                    DB::delete('DELETE FROM sysOneStudent WHERE date = ?', [$date]);
-                    DB::insert('INSERT into sysOneStudent (name, major, voteOne, voteTwo, voteThree, code, date) VALUE (?, ?, ?, ?, ?, ?, ?)', [session('name'), session('major'), $input['choice'][0], $input['choice'][1], $input['choice'][2], session('code'), $date]);
+                if (DB::select('SELECT * FROM student WHERE code = ?', [session('code')])){
+                    DB::delete('DELETE FROM student WHERE code = ?', [session('code')]);
+                    DB::insert('INSERT into student (name, major, one, two, three, four, five, six, seven, eight, nine, ten, code, date) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [session('name'), session('major'), $input['choice'][0], $input['choice'][1], $input['choice'][2],  $input['choice'][3], $input['choice'][4], $input['choice'][5], $input['choice'][6], $input['choice'][7], $input['choice'][8], $input['choice'][9], session('code'), $date]);
+                    return 1;
                 }
                 else{
-                    DB::insert('INSERT into sysOneStudent (name, major, voteOne, voteTwo, voteThree, code, date) VALUE (?, ?, ?, ?, ?, ?, ?)', [session('name'), session('major'), $input['choice'][0], $input['choice'][1], $input['choice'][2], session('code'), $date]);
+                    DB::insert('INSERT into student (name, major, one, two, three, four, five, six, seven, eight, nine, ten, code, date) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [session('name'), session('major'), $input['choice'][0], $input['choice'][1], $input['choice'][2],  $input['choice'][3], $input['choice'][4], $input['choice'][5], $input['choice'][6], $input['choice'][7], $input['choice'][8], $input['choice'][9], session('code'), $date]);
+                    return 2;
                 }
-
-
-
                 break;
             default:
                 break;
