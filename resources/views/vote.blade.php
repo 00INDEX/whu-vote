@@ -18,8 +18,9 @@
                     </h4>
                 </div>
                 <div id="{{ "aaa" . $teacher->id }}" class="panel-collapse collapse in">
-        @endif
                 -->
+        @endif
+
 
 
 
@@ -58,16 +59,8 @@
                                     <button type="button" class="btn btn-primary btn-lg vote" name="vote" vote="{{ $teacher->id }}" id="{{ $teacher->id }}">投票</button>
                                 </div>
 
-
-
-
-
-
-
-
-
-
-            @if($teacher->id == 11 || $teacher->id == 24 || $teacher->id == 38 || $teacher->id == 47)<!--
+            @if($teacher->id == 11 || $teacher->id == 24 || $teacher->id == 38 || $teacher->id == 47)
+                                <!--
             多个奖项分幅时使用
                         </div>
                 </div>
