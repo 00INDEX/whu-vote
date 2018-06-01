@@ -67,7 +67,7 @@
 
 
 
-            @if($sport->id == 11 || $sport->id == 24 || $sport->id == 38 || $sport->id == 47)<!--
+            @if($teacher->id == 11 || $teacher->id == 24 || $teacher->id == 38 || $teacher->id == 47)<!--
             多个奖项分幅时使用
                         </div>
                 </div>
