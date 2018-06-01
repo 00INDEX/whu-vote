@@ -101,7 +101,7 @@
                     swal({
                         title: "请先登陆，微信用户请用浏览器打开否则会跳出",
                         showConfirmButton: false,
-                        text: "<form class=\"form-horizontal\" id=\"auth\" role=\"form\" method=\"post\" action=\"/vote\">\n" +
+                        text: "<form class=\"form-horizontal\" id=\"auth\" role=\"form\" method=\"post\" action=\"/\">\n" +
                         "<input type=\"hidden\" name=\"_token\" value=\"{{csrf_token()}}\">\n" +
                         "<input type=\"hidden\" name=\"action\" value=\"1\">\n" +
                         "<div class=\"form-group\">\n" +
@@ -160,7 +160,8 @@
         </script>
     @endif
 
-    @if(session('code'))
+                                @if(session('code'))
+
         <script>
             var choice = new Array();
             $(document).ready(function () {
@@ -172,7 +173,7 @@
                         $("button#" + vote).text("投票");
                         return true;
                     }
-                    if (choice.length == 3){
+                    if (choice.length == 10){
                         var pop = choice.pop();
                         $("button#" + pop).removeClass("active");
                         $("button#" + pop).text("投票");
@@ -183,19 +184,9 @@
                 });
                 $("#votesubmit").click(function () {
                     if (choice.length == 0) return false;
-                    if (choice.length < 3 ){
-                        switch (choice.length){
-                            case 1:
-                                choice.unshift(0);
-                                choice.unshift(0);
-                                break;
-                            case 2:
-                                choice.unshift(0);
-                                break;
-                            default:
-                                break;
-                        }
-                    }
+                    if (choice.length < 10 ){
+                        for (var i = 0;i < 10 - choice.length; i++) choice.unshift(0);
+                    };
                     var data = {
                         "_token": "{{csrf_token()}}",
                         "choice": choice,
@@ -212,7 +203,7 @@
                         function(){
                             $.ajax({
                                 type: "POST",
-                                url: "/vote",
+                                url: "/",
                                 data: data,
                                 success: function (data) {
                                     swal("提交成功！","谢谢您的参与", "success")
@@ -222,7 +213,7 @@
                 })
             });
         </script>
-    @endif
+                    @endif
 
 @endsection
 
