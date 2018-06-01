@@ -9,10 +9,10 @@ class AuthController extends Controller
 {
     private $params;
     public function index(){
-        //$sports = DB::table('sport')->get();
+        $teachers = DB::table('teacher')->get();
         $this->params = array(
             "title" => "体坛风云人物投票",
-            //"sports" => $sports
+            "teachers" => $teachers
         );
         return view('vote', $this->params);
     }
@@ -80,10 +80,10 @@ class AuthController extends Controller
 
 
         }
-        $sports = DB::table('sport')->get();
+        $teachers = DB::table('teacher')->get();
         $this->params = array(
             "title" => "体坛风云人物投票",
-            "sports" => $sports
+            "teachers" => $teachers
         );
         return view('vote', $this->params);
     }

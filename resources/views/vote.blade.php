@@ -2,24 +2,24 @@
 
 @section('content')
 
-    @foreach($sports as $sport)
+    @foreach($teachers as $teacher)
 
-        @if($sport->id == 1 || $sport->id == 12 || $sport->id == 25 || $sport->id == 39)
-
-
+        @if($teacher->id == 1 || $teacher->id == 12 || $teacher->id == 25 || $teacher->id == 39)
+<!--
+多个奖项分幅时使用
         <div class="panel-group" id="accordion" style="margin: 0 auto !important;width: 440px !important;">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion"
-                           href="{{ "#aaa" . $sport->vote }}">
-                            {{ $sport->award }}
+                           href="{{ "#aaa" . $teacher->id }}">
+                            {{ $teacher->id }}
                         </a>
                     </h4>
                 </div>
-                <div id="{{ "aaa" . $sport->vote }}" class="panel-collapse collapse in">
+                <div id="{{ "aaa" . $teacher->id }}" class="panel-collapse collapse in">
         @endif
-
+                -->
 
 
 
@@ -31,31 +31,31 @@
 
                                     <div style="width: 400px;height: auto;margin: 0 auto">
                                         <div class="face">
-                                            <img src="{{ $sport->pic }}" width="350px" style="box-shadow: 5px 5px 2px #888888;">
+                                            <img src="{{ $teacher->pic }}" width="350px" style="box-shadow: 5px 5px 2px #888888;">
                                         </div>
-                                        <p style="font-size: 30px;margin-top: 10px">{{ $sport->name }}</p>
+                                        <p style="font-size: 30px;margin-top: 10px">{{ $teacher->name }}</p>
                                         <div style="width: 130px;height: 2px;background-color: green;margin: 0 auto"></div>
                                         <!--
-                                        <p style="font-size: 15px;float: left;margin-left: 100px;position: absolute;margin-top: 95px">{{ $sport->honor }}</p>
+                                        <p style="font-size: 15px;float: left;margin-left: 100px;position: absolute;margin-top: 95px">{{ $teacher->id }}</p>
                                         <div style="width: 100px;height: 2px;background-color: green;float: left;margin-left: 100px;position: absolute;margin-top: 115px"></div>
                                         -->
-                                        <div class="info"><pre>{{ $sport->honor }}</pre></div>
+                                        <div class="info"><pre>{{ $teacher->award }}</pre></div>
                                     </div>
 
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion"
-                                                   href="#collapse{{ $sport->id }}">
+                                                   href="#collapse{{ $teacher->id }}">
                                                     介绍
                                                 </a>
                                             </h4>
                                         </div>
-                                        <div id="collapse{{ $sport->id }}" class="panel-collapse collapse in">
-                                            <div class="panel-body">{{ $sport->introducation }}</div>
+                                        <div id="collapse{{ $teacher->id }}" class="panel-collapse collapse in">
+                                            <div class="panel-body">{{ $teacher->introduction }}</div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-primary btn-lg vote" name="vote" vote="{{ $sport->vote }}" id="{{ $sport->id }}">投票</button>
+                                    <button type="button" class="btn btn-primary btn-lg vote" name="vote" vote="{{ $teacher->id }}" id="{{ $teacher->id }}">投票</button>
                                 </div>
 
 
@@ -67,10 +67,12 @@
 
 
 
-            @if($sport->id == 11 || $sport->id == 24 || $sport->id == 38 || $sport->id == 47)
+            @if($sport->id == 11 || $sport->id == 24 || $sport->id == 38 || $sport->id == 47)<!--
+            多个奖项分幅时使用
                         </div>
                 </div>
         </div>
+        -->
             @endif
     @endforeach
             <button type="button" class="btn btn-primary btn-lg btn-block" id="votesubmit">提交</button>
