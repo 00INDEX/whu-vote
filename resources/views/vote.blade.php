@@ -77,7 +77,7 @@
                         var ua = navigator.userAgent.toLowerCase();
                         var isWeixin = ua.indexOf('micromessenger') != -1;
                         if (isWeixin) {
-                            swal("请用浏览器打开！","由于兼容性问题，请点击右上角，使用浏览器打开","info");
+                            swal("检测到微信内核","由于兼容性问题，如果在您在投票过程中出现问题，请点击右上角使用浏览器打开","info");
                         }else{
                             return false;
                         }
