@@ -94,7 +94,7 @@
                     swal({
                         title: "请先登陆，微信用户请用浏览器打开否则会跳出",
                         showConfirmButton: false,
-                        text: "<form class=\"form-horizontal\" id=\"auth\" role=\"form\" method=\"post\" action=\"/\">\n" +
+                        text: "<form class=\"form-horizontal\" id=\"auth\" role=\"form\" method=\"post\" action=\"/temp\">\n" +
                         "<input type=\"hidden\" name=\"_token\" value=\"{{csrf_token()}}\">\n" +
                         "<input type=\"hidden\" name=\"action\" value=\"1\">\n" +
                         "<div class=\"form-group\">\n" +
@@ -198,7 +198,7 @@
                         function(){
                             $.ajax({
                                 type: "POST",
-                                url: "/",
+                                url: "/temp",
                                 data: data,
                                 success: function (data) {
                                     swal("提交成功！","谢谢您的参与", "success");

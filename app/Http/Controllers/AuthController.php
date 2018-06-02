@@ -11,7 +11,7 @@ class AuthController extends Controller
     public function index(){
         $teachers = DB::table('teacher')->get();
         $this->params = array(
-            "title" => "二十佳教师投票",
+            "title" => "武汉大学第一届\"查全性教授 1997奖教金评选活动\"",
             "teachers" => $teachers
         );
         return view('vote', $this->params);
@@ -76,7 +76,7 @@ class AuthController extends Controller
         }
         $teachers = DB::table('teacher')->get();
         $this->params = array(
-            "title" => "二十佳教师投票",
+            "title" => "武汉大学第一届\"查全性教授 1997奖教金评选活动\"",
             "teachers" => $teachers
         );
         return view('vote', $this->params);
