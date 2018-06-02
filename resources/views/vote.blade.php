@@ -166,7 +166,7 @@
                         $("button#" + vote).text("投票");
                         return true;
                     }
-                    if (choice.length == 10){
+                    if (choice.length == 12){
                         var pop = choice.pop();
                         $("button#" + pop).removeClass("active");
                         $("button#" + pop).text("投票");
@@ -176,8 +176,9 @@
                     $(this).text("已投票！");
                 });
                 $("#votesubmit").click(function () {
-                    if (choice.length == 0) return false;
-                    if (choice.length < 10 ){
+                    if (choice.length < 12 ){
+                        swal("投票不足","投满十二个才能提交","error");
+                        return false;
                         var l = choice.length;
                         for (var i = 0;i < 10 - l; i++) choice.unshift(0);
                     };
